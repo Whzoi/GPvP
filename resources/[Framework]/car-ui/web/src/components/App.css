@@ -1,0 +1,147 @@
+@import "https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&family=Oswald&family=Poppins&family=Yuji+Hentaigana+Akari&display=swap";
+
+/* ROOT NUI CONTAINER ---------------------------- */
+.VehicleNUIRoot {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    inset: 0;
+    z-index: 999; /* above game world */
+}
+
+/* GPVP GRADIENT BACKDROP ------------------------ */
+#gpvpGradientOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+
+    background: radial-gradient(circle at center,
+        rgba(255, 0, 128, 0.55) 0%,
+        rgba(80, 0, 65, 0.60) 40%,
+        rgba(15, 15, 20, 1) 100%
+    );
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* WRAPPER (menu container) ---------------------- */
+.VehicleMenu-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    z-index: 2;
+
+    margin-top: 12vh;
+}
+
+/* CARD GRID ---------------------------------- */
+.VehicleMenu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 22px;
+
+    width: 150vh;
+    height: auto;
+
+    user-select: none;
+    padding-bottom: 20px;
+}
+
+/* CARD BASE ---------------------------------- */
+.VehicleMenu-card {
+    width: 29vh;
+    height: 18vh;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid rgba(150, 150, 150, 0.45);
+    background: linear-gradient(180deg, rgba(255, 138, 210, 0.28), rgba(0, 0, 0, 0.3));
+    
+    filter: grayscale(35%);
+    border-radius: 6px;
+
+    overflow: hidden;
+    transition: transform .18s ease, filter .18s ease, box-shadow .18s ease, border-color .2s;
+    will-change: transform, filter;
+
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
+}
+
+/* CARD IMAGE --------------------------------- */
+.VehicleMenu-card-img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    background-position: center;
+
+    filter: brightness(0.55);
+    transition: filter .2s, transform .25s cubic-bezier(.22,.61,.36,1);
+    will-change: filter, transform;
+}
+
+/* LABEL -------------------------------------- */
+.VehicleMenu-card-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 1vh;
+    text-align: center;
+
+    font-family: 'Oswald';
+    font-size: 4.2vmin;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    color: #ff9ad5;
+
+    background: linear-gradient(180deg, rgba(255, 138, 210, 0.25), rgba(0, 0, 0, 0.65));
+    backdrop-filter: blur(3px);
+
+    text-shadow: 0 0 8px #ff8addaa;
+    transition: color .2s, text-shadow .2s;
+}
+
+/* HOVER EFFECTS ------------------------------- */
+.VehicleMenu-card:hover {
+    cursor: pointer;
+
+    filter: none;
+    transform: scale(1.075);
+
+    border: 2px solid #ff8adc;
+    background: rgba(0, 0, 0, 0.55);
+
+    box-shadow: 0 0 30px rgba(255, 110, 210, 0.48);
+}
+
+.VehicleMenu-card:hover .VehicleMenu-card-img {
+    filter: brightness(0.9);
+    transform: scale(1.06);
+}
+
+.VehicleMenu-card:hover .VehicleMenu-card-label {
+    color: #ffffff;
+    text-shadow: 0 0 15px #ff8add;
+}

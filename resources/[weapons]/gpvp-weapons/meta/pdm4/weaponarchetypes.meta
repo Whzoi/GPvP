@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CWeaponModelInfo__InitDataList>
+	<InitDatas>
+		
+		<Item>
+			<modelName>w_ar_navycarbine</modelName>
+			<txdName>w_ar_navycarbine</txdName>
+			<ptfxAssetName>null</ptfxAssetName>
+			<lodDist value="50"/>
+		</Item>
+		<Item>
+			<modelName>w_ar_navycarbine_sight</modelName>
+			<txdName>w_ar_navycarbine_sight</txdName>
+			<ptfxAssetName>null</ptfxAssetName>
+			<lodDist value="50"/>
+		</Item>
+		<Item>
+			<modelName>w_at_stock</modelName>
+			<txdName>w_at_stocks</txdName>
+			<ptfxAssetName>null</ptfxAssetName>
+			<lodDist value="30"/>
+		</Item>
+		<Item>
+			<modelName>w_at_stock_02</modelName>
+			<txdName>w_at_stocks</txdName>
+			<ptfxAssetName>null</ptfxAssetName>
+			<lodDist value="30"/>
+		</Item>
+		<Item>
+			<modelName>w_at_stock_03</modelName>
+			<txdName>w_at_stocks</txdName>
+			<ptfxAssetName>null</ptfxAssetName>
+			<lodDist value="30"/>
+		</Item>
+		<Item>
+			<modelName>w_at_stock_04</modelName>
+			<txdName>w_at_stocks</txdName>
+			<ptfxAssetName>null</ptfxAssetName>
+			<lodDist value="30"/>
+		</Item>
+		<Item>
+			<modelName>w_at_stock_05</modelName>
+			<txdName>w_at_stocks</txdName>
+			<ptfxAssetName>null</ptfxAssetName>
+			<lodDist value="30"/>
+		</Item>
+		
+	</InitDatas>
+</CWeaponModelInfo__InitDataList>

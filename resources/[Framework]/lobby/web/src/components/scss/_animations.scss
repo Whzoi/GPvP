@@ -1,0 +1,46 @@
+@keyframes expandLine {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  
+  @keyframes collapseLine {
+    from {
+      transform: scaleX(1);
+    }
+    to {
+      transform: scaleX(0);
+    }
+  } 
+
+  .expand {
+    animation: expandLine 0.25s ease-in-out forwards;
+  }
+  
+  .collapse {
+    animation: collapseLine 0.25s ease-in-out forwards;
+  }
+
+  @keyframes NavbarFade {
+    0% {
+        filter: drop-shadow(0 0 .2vh #aaa0ff)
+    }
+
+    50% {
+        filter: drop-shadow(0 0 .6vh #aaa0ff)
+    }
+
+    to {
+        filter: drop-shadow(0 0 .2vh #aaa0ff)
+    }
+}
+
+.line-container {
+  overflow: hidden;
+  display: inline-block;
+  transform-origin: center;
+  transition: all 0.3s ease-in-out;
+}

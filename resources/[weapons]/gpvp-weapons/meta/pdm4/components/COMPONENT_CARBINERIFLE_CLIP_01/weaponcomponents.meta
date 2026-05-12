@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CWeaponComponentInfoBlob>
+  <Data>
+  </Data>
+  <Infos>
+  <Item type="CWeaponComponentScopeInfo">
+      <Name>COMPONENT_NAVYCARBINE_SIGHT_01</Name>
+      <Model>w_ar_navycarbine_sight</Model>
+      <LocName>WCT_NAVYCARBINEIRON_SIGHT</LocName>
+      <LocDesc>WCD_IRON_SIGHT</LocDesc>
+      <AttachBone>AAPScop</AttachBone>
+	  <ApplyWeaponTint value="true" />
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="false" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+      <CameraHash />
+      <RecoilShakeAmplitude value="0.333000" />
+      <ExtraZoomFactorForAccurateMode value="0.000000" />
+      <Reticule value="0" />
+      <ReticuleHash />
+    </Item>
+    <Item type="CWeaponComponentInfo">
+      <Name>COMPONENT_AT_STOCK_01</Name>
+      <Model>w_at_stock</Model>
+      <LocName>WCT_S1</LocName>
+      <LocDesc>WCD_AT_S1</LocDesc>
+      <AttachBone>AAPStock</AttachBone>
+	  <ApplyWeaponTint value="true" />
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+    </Item>
+	<Item type="CWeaponComponentInfo">
+      <Name>COMPONENT_AT_STOCK_02</Name>
+      <Model>w_at_stock_02</Model>
+      <LocName>WCT_S2</LocName>
+      <LocDesc>WCD_AT_S2</LocDesc>
+      <AttachBone>AAPStock</AttachBone>
+	  <ApplyWeaponTint value="true" />
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+    </Item>
+	<Item type="CWeaponComponentInfo">
+      <Name>COMPONENT_AT_STOCK_03</Name>
+      <Model>w_at_stock_03</Model>
+      <LocName>WCT_S3</LocName>
+      <LocDesc>WCD_AT_S3</LocDesc>
+      <AttachBone>AAPStock</AttachBone>
+	  <ApplyWeaponTint value="true" />
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+    </Item>
+	<Item type="CWeaponComponentInfo">
+      <Name>COMPONENT_AT_STOCK_04</Name>
+      <Model>w_at_stock_04</Model>
+      <LocName>WCT_S4</LocName>
+      <LocDesc>WCD_AT_S4</LocDesc>
+      <AttachBone>AAPStock</AttachBone>
+	  <ApplyWeaponTint value="true" />
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+    </Item>
+	<Item type="CWeaponComponentInfo">
+      <Name>COMPONENT_AT_STOCK_05</Name>
+      <Model>w_at_stock_05</Model>
+      <LocName>WCT_S5</LocName>
+      <LocDesc>WCD_AT_S5</LocDesc>
+      <AttachBone>AAPStock</AttachBone>
+	  <ApplyWeaponTint value="true" />
+      <AccuracyModifier type="NULL" />
+      <DamageModifier type="NULL" />
+      <bShownOnWheel value="true" />
+      <CreateObject value="true" />
+      <HudDamage value="0" />
+      <HudSpeed value="0" />
+      <HudCapacity value="0" />
+      <HudAccuracy value="0" />
+      <HudRange value="0" />
+    </Item>
+  </Infos>
+  <InfoBlobName>DLC - NavyCarbine</InfoBlobName>
+</CWeaponComponentInfoBlob>

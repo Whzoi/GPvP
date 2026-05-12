@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF - 8"?>
+
+<CWeaponModelInfo__InitDataList>
+	<InitDatas>
+		<Item>
+			<modelName>w_ar_hk</modelName>
+			<txdName>w_ar_hk</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="1000"/>
+		</Item>
+		<Item>
+			<modelName>w_ar_hk_mag</modelName>
+			<txdName>w_ar_hk_mag</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="1000"/>
+		</Item>
+		<Item>
+			<modelName>w_ar_hk_flsh</modelName>
+			<txdName>w_ar_hk_flsh</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="1000"/>
+		</Item>
+		<Item>
+			<modelName>w_ar_hk_scope</modelName>
+			<txdName>w_ar_hk_scope</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="1000"/>
+		</Item>
+		<Item>
+			<modelName>w_ar_hk_supp</modelName>
+			<txdName>w_ar_hk_supp</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="1000"/>
+		</Item>
+		<Item>
+			<modelName>w_ar_hk_afgrip</modelName>
+			<txdName>w_ar_hk_afgrip</txdName>
+			<ptfxAssetName>NULL</ptfxAssetName>
+			<lodDist value="1000"/>
+		</Item>
+	</InitDatas>
+</CWeaponModelInfo__InitDataList>
+

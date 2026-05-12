@@ -1,0 +1,109 @@
+* {
+    font-family: Gilroy;
+    overflow: hidden
+}
+
+pre {
+    counter-reset: line-numbering;
+    background: #2c3e50;
+    padding: 12px 0 14px;
+    color: #ecf0f1;
+    line-height: 140%
+}
+
+.nui-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 25px
+}
+
+.textui {
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    margin-bottom: 5px
+}
+
+.textui:last-child {
+    margin-bottom: 35px
+}
+
+.textui-keybind-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 39px;
+    height: 41px;
+    background-color: #252934;
+    border-radius: 3px
+}
+
+.textui-keybind {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 25px;
+    color: #b8437e;
+    font-weight: 600;
+    background-color: #9c366661;
+    border: .2vh solid #935272;
+    border-radius: 5px;
+    text-shadow: 0 0 5px #bc508f40, 0 0 5px #bc508240, 0 0 5px #bc508640, 0 0 5px #bc508f40
+}
+
+.textui-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 155px;
+    height: 41px;
+    background-color: #34252d;
+    border-radius: 3px
+}
+
+.textui-container:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 5px;
+    height: 5px;
+    background-color: #b8437e;
+    border-radius: 40%;
+    box-shadow: 0 0 10px #b8439b, 0 0 20px #b84391
+}
+
+.textui-container p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    color: #fff;
+    font-size: 14px;
+    width: 155px;
+    height: 41px;
+    background-color: #252934;
+    border-radius: 3px
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100vh
+}
+
+#root {
+    height: 100%
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace
+}

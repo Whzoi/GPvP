@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lava Camo Loadscreen</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #181818;
+  }
+
+  canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+  }
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  .logo img {
+    width: 250px;
+    height: auto;
+  }
+
+  .hint {
+    position: fixed;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-shadow: 0 0 5px black;
+    z-index: 20;
+  }
+
+  .snowflake {
+    position: fixed;
+    top: 0;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    pointer-events: none;
+    z-index: 15;
+  }
+
+  @keyframes fall {
+    to { transform: translateY(100vh); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+  <canvas id="lavaCanvas"></canvas>
+
+  <div class="logo">
+    <img src="https://cdn.global-rp.com/i/d949ab4a3bfa908c2a6094f173d1c738.webp" alt="Logo" />
+  </div>
+
+  <div class="hint">Press <strong>Space</strong> to Play/Pause Music</div>
+
+  <audio id="bgAudio" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    /* ---------- Lava Animation ---------- */
+    const canvas = document.getElementById('lavaCanvas');
+    const ctx = canvas.getContext('2d');
+    let w, h, t = 0;
+    const resize = () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; };
+    window.addEventListener('resize', resize);
+    resize();
+
+    function noise(x, y, t) {
+      // simple layered noise
+      return (
+        Math.sin(x*0.021 + t*0.001) +
+        Math.sin(y*0.018 - t*0.0015) +
+        Math.sin((x+y)*0.013 + t*0.0007) +
+        Math.sin(Math.sqrt(x*x+y*y)*0.025 - t*0.002)
+      );
+    }
+
+    function draw() {
+      t += 16;
+      const img = ctx.createImageData(w, h);
+      const d = img.data;
+      for (let y=0; y<h; y+=2) {
+        for (let x=0; x<w; x+=2) {
+          const n = noise(x, y, t);
+          // map noise to colors between dark gray and hot pink-red blend
+          const mix = (n + 4) / 8; // normalize roughly 0–1
+  const r = 24 + (0 - 24) * mix;     // stays mostly dark
+const g = 24 + (170 - 24) * mix;   // teal/blue-green
+const b = 24 + (255 - 24) * mix;   // bright blue
+          const i = (y*w + x)*4;
+          d[i] = r; d[i+1] = g; d[i+2] = b; d[i+3] = 255;
+        }
+      }
+      ctx.putImageData(img, 0, 0);
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    /* ---------- Snow ---------- */
+    const numFlakes = 50;
+    for (let i = 0; i < numFlakes; i++) {
+      const flake = document.createElement('div');
+      flake.classList.add('snowflake');
+      const size = Math.random() * 3 + 2;
+      flake.style.width = `${size}px`;
+      flake.style.height = `${size}px`;
+      flake.style.left = `${Math.random() * 100}vw`;
+      flake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      flake.style.animationDelay = `${Math.random() * 5}s`;
+      flake.style.background = `rgba(255, 255, 255, ${Math.random() * 0.9})`;
+      document.body.appendChild(flake);
+    }
+
+    /* ---------- Audio Control ---------- */
+    const audio = document.getElementById('bgAudio');
+    let isPlaying = false;
+
+    const startAudio = () => {
+      if (!isPlaying) {
+        audio.play().then(() => { isPlaying = true; })
+          .catch(err => console.warn("Autoplay blocked:", err));
+      }
+    };
+
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        if (isPlaying) { audio.pause(); isPlaying = false; }
+        else { startAudio(); }
+      }
+    });
+
+    document.addEventListener('click', startAudio);
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+.scoreboard-container {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+    color: rgb(255, 0, 140);
+    width: 600px;
+}
+
+.team {
+    text-align: center;
+}
+
+.team-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#team1 .team-name {
+    color: #ff4d4d; /* Red for Team 1 */
+}
+
+#team2 .team-name {
+    color: #4d4dff; /* Blue for Team 2 */
+}
+
+.team-score {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.alive-count {
+    font-size: 14px;
+}
+
+.round-info {
+    text-align: center;
+}
+
+.round-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.round-number {
+    font-size: 24px;
+}

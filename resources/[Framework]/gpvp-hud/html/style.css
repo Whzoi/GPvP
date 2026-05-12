@@ -1,0 +1,240 @@
+html, body {
+  width: 100vw; height: 100vh; margin: 0; overflow: hidden;
+  color: #ffffffde; font-family: "Oswald", sans-serif; background: transparent;
+  -webkit-user-select: none; user-select: none;
+}
+
+.hud-container {
+  width: 14.5vw;
+  display: flex; flex-direction: column;
+  position: absolute; bottom: 2vh; left: 2vw;
+  gap: 0.8vh; z-index: 9999;
+  transition: left 0.2s, top 0.2s;
+}
+
+/* === HEALTH & ARMOR === */
+.bar-container { display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
+.bar-header { display: flex; align-items: center; gap: 0.4vw; margin-bottom: 0.2vh; }
+.bar-icon { font-size: 1vw; transition: color 0.3s; }
+.bar-label { font-size: 0.75vw; font-weight: 700; color: #ffffffcc; }
+.bar-fill { height: 1.1vh; width: 100%; border-radius: 10px; border: 2px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.25); overflow: hidden; }
+.bar-inner { height: 100%; width: 100%; border-radius: 10px; transition: width 0.35s ease, background 0.25s ease; }
+
+.armor-segments { display: flex; gap: 0.2vw; width: 100%; justify-content: space-between;
+  height: 1.1vh; border-radius: 10px; border: 2px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.25); padding: 0.08vh; box-sizing: border-box; }
+.armor-segment { flex: 1; height: 100%; border-radius: 6px; background: rgba(50,50,50,0.35);
+  overflow: hidden; position: relative; }
+.armor-segment-fill { height: 100%; width: 100%; background: #ff00a8;
+  box-shadow: 0 0 10px #ff00a8; transition: width 0.25s ease; }
+
+/* === WEAPON CLUSTER === */
+.weapon-cluster {
+  position: absolute; top: 68%; left: -3.5vw; transform: translateY(-50%);
+  display: none; flex-direction: column; align-items: center; gap: 0.3vw; z-index: 3;
+}
+.weapon-hex {
+  width: 3vw; height: 3vw; background: rgba(25,25,25,0.95);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+}
+.weapon-image { width: 2.5vw; height: 2.5vw; object-fit: contain; opacity: 0.95;
+  filter: drop-shadow(0 0 6px rgba(255,0,168,0.4)); }
+
+.ammo-row { display: flex; gap: 0.3vw; justify-content: center; align-items: center; }
+.ammo-hex {
+  width: 1.3vw; height: 1.3vw; background: rgba(25,25,25,0.95); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7vw; font-weight: 700; color: #fff;
+  text-shadow: 0 0 5px rgba(255, 0, 170, 0.288);
+  overflow: hidden; position: relative;
+}
+
+body.hud-hidden #hud,
+    body.hud-hidden #speedometer {
+      display: none !important;
+    }
+
+/* === AMMO ANIMATION === */
+.ammo-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.ammo-number.drop {
+  transform: translate(-50%, calc(-50% + 15px));
+  opacity: 0;
+}
+
+.draggable { border: 1px dashed rgba(255,255,255,0.4); cursor: move; }
+
+/* === KILLFEED === */
+.killfeed {
+  position: absolute;
+  top: 6vh;
+  right: 2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vh;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.killfeed-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+  padding: 0.6vh 0.9vw;
+  min-width: 14vw;
+  border-radius: 12px;
+  background: rgba(20, 20, 24, 0.78);
+  box-shadow: 0 0 18px rgba(255, 0, 168, 0.15);
+  border: 1px solid rgba(255, 0, 168, 0.35);
+  overflow: hidden;
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.killfeed-entry.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.killfeed-entry.fade {
+  opacity: 0;
+}
+
+.killfeed-player {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1vh;
+  min-width: 4.5vw;
+}
+
+.killfeed-name {
+  font-size: 0.75vw;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.killfeed-sub {
+  font-size: 0.63vw;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.killfeed-weapon {
+  width: 2.2vw;
+  height: 2.2vw;
+  background: rgba(40, 40, 46, 0.85);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 0, 168, 0.25);
+  overflow: hidden;
+}
+
+.killfeed-weapon img {
+  width: 1.8vw;
+  height: 1.8vw;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255, 0, 168, 0.35));
+}
+
+/* === LEADERBOARD === */
+.leaderboard {
+  position: absolute;
+  top: 84vh;
+  left: 80vw;
+  width: 18vw;
+  background: rgba(18, 18, 22, 0.82);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 0, 168, 0.28);
+  box-shadow: 0 0 24px rgba(255, 0, 168, 0.18);
+  overflow: hidden;
+  display: none;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.leaderboard.visible {
+  display: flex;
+  flex-direction: column;
+}
+
+.leaderboard-header {
+  padding: 0.8vh 1vw;
+  font-size: 0.85vw;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(30, 30, 36, 0.95);
+  border-bottom: 1px solid rgba(255, 0, 168, 0.25);
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4vh;
+  padding: 0.8vh 0.9vw 1vh;
+}
+
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: 1.6vw 1fr auto auto auto;
+  align-items: center;
+  gap: 0.5vw;
+  padding: 0.5vh 0.6vw;
+  border-radius: 10px;
+  background: rgba(40, 40, 46, 0.55);
+  border: 1px solid rgba(255, 0, 168, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.68vw;
+  font-weight: 600;
+}
+
+.leaderboard-row.highlight {
+  background: rgba(255, 0, 168, 0.22);
+  border-color: rgba(255, 0, 168, 0.38);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.leaderboard-rank {
+  font-size: 0.75vw;
+  font-weight: 700;
+  color: rgba(255, 0, 168, 0.9);
+  text-align: center;
+}
+
+.leaderboard-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.leaderboard-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 2.5vw;
+}
+
+.leaderboard-stat span {
+  font-size: 0.6vw;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+

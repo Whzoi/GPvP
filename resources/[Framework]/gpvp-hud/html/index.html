@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>GRP HUD</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hud-container" id="hud">
+    <!-- Health -->
+    <div class="bar-container">
+      <div class="bar-header">
+        <i class="fa-solid fa-heart-pulse bar-icon" id="healthIcon"></i>
+        <span class="bar-label" id="healthPercent">100%</span>
+      </div>
+      <div class="bar-fill"><div class="bar-inner" id="healthInner"></div></div>
+    </div>
+
+    <!-- Armor -->
+    <div class="bar-container">
+      <div class="bar-header">
+        <i class="fa-solid fa-shield-halved bar-icon" id="armorIcon"></i>
+        <span class="bar-label" id="armorPercent">100%</span>
+      </div>
+      <div class="armor-segments">
+        <div class="armor-segment"><div class="armor-segment-fill" id="armorSeg1"></div></div>
+        <div class="armor-segment"><div class="armor-segment-fill" id="armorSeg2"></div></div>
+        <div class="armor-segment"><div class="armor-segment-fill" id="armorSeg3"></div></div>
+        <div class="armor-segment"><div class="armor-segment-fill" id="armorSeg4"></div></div>
+      </div>
+    </div>
+
+    <!-- Weapon Cluster -->
+    <div class="weapon-cluster" id="weaponCluster">
+      <div class="weapon-hex"><img src="" id="weaponImage" class="weapon-image"></div>
+      <div class="ammo-row">
+        <div class="ammo-hex" id="ammoClip"><span class="ammo-number">0</span></div>
+        <div class="ammo-hex" id="ammoTotal"><span class="ammo-number">0</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="killfeed" id="killfeed"></div>
+  <div class="leaderboard" id="leaderboard">
+    <div class="leaderboard-header">Top Killers</div>
+    <div class="leaderboard-list" id="leaderboardList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

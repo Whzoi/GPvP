@@ -1,0 +1,42 @@
+-- local colors = {
+--     red = 0xFF0000,
+--     green = 0x00FF00,
+--     blue = 0x0000FF,
+--     yellow = 0xFFFF00,
+--     orange = 0xFFA500,
+--     purple = 0x800080,
+--     cyan = 0x00FFFF,
+--     magenta = 0xFF00FF,
+--     pink = 0xFFC0CB,
+--     teal = 0x008080,
+--     lime = 0x00FF00,
+--     brown = 0xA52A2A,
+--     silver = 0xC0C0C0,
+--     gold = 0xFFD700,
+--     gray = 0x808080,
+--     black = 0x000000,
+--     white = 0xFFFFFF
+-- }
+
+-- RegisterNetEvent('adminmenu:discord')
+-- AddEventHandler('adminmenu:discord', function(webhook, name, message, colorName, footer)
+--     sendToDiscord(webhook, name, message, colorName, footer)
+-- end)
+
+-- function sendToDiscord(webhook, name, message, colorName, footer)
+--     local color = colors[colorName] or 0xFFFFFF -- Default to white if color is not found
+--     local embed = {
+--         {
+--             ["color"] = color,
+--             ["title"] = "**".. name .."**",
+--             ["description"] = message,
+--             ["footer"] = {
+--                 ["text"] = footer,
+--             },
+--         }
+--     }
+
+--     PerformHttpRequest(webhook, function(err, text, headers) end, 'POST', json.encode({username = name, embeds = embed}), { ['Content-Type'] = 'application/json' })
+-- end
+
+-- exports('sendToDiscord', sendToDiscord)
